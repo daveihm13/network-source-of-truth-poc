@@ -1,22 +1,32 @@
 # Network Source of Truth PoC
 
-This project demonstrates a NetDevOps-style approach to managing network configurations using a source of truth model.
+This project demonstrates a simple NetDevOps proof of concept that treats network configuration as code.
 
-## Overview
+It uses structured YAML data as a source of truth, Jinja2 templates for configuration generation, and Python to render device-specific configs.
 
-- Device data is stored in YAML (source of truth)
-- Jinja2 templates generate configurations
-- Python script renders configs per device
+## Why this project exists
 
-## Structure
+Modern network teams are increasingly adopting DevOps practices such as version control, templating, validation, and CI/CD. This repository is a lightweight example of how network configuration workflows can be modeled in a repeatable and scalable way.
 
-- `data/` → structured network data
-- `templates/` → configuration templates
-- `scripts/` → rendering logic
-- `rendered/` → generated configs
+## Current capabilities
 
-## How to run
+- Stores device inventory and interface data in YAML
+- Uses Jinja2 templates to generate device configurations
+- Renders one config per device
+- Separates source data from rendering logic
 
-```bash
-pip install pyyaml jinja2
-python scripts/render_configs.py
+## Repository structure
+
+```text
+.
+├── data/
+│   └── devices.yaml
+├── templates/
+│   └── base_config.j2
+├── scripts/
+│   └── render_configs.py
+├── rendered/
+│   ├── core-1.cfg
+│   └── edge-1.cfg
+├── requirements.txt
+└── README.md
