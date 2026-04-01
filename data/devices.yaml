@@ -1,0 +1,16 @@
+devices:
+  - hostname: core-1
+    role: core
+    mgmt_ip: 10.0.0.1
+    interfaces:
+      - name: eth0
+        ip: 192.168.1.1/24
+      - name: eth1
+        ip: 192.168.2.1/24
+
+  - hostname: edge-1
+    role: edge
+    mgmt_ip: 10.0.0.2
+    interfaces:
+      - name: eth0
+        ip: 172.16.1.1/24
